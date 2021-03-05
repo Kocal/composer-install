@@ -1,4 +1,4 @@
-name: "Install Composer Dependencies"
+name: "Install Composer Dependencies (with working-directory support)"
 author: "Ben Ramsey"
 description: >-
   Installs and caches Composer dependencies, accepting arguments to configure
