@@ -19,7 +19,7 @@ describe('composer.install with mocked exec', () => {
       '--no-interaction',
       '--no-progress',
       '--ansi'
-    ])
+    ], { listeners: { stderr: expect.any(Function) }})
   })
 
   test('executes command to install composer with highest dependencies', async () => {
@@ -33,7 +33,7 @@ describe('composer.install with mocked exec', () => {
       '--no-interaction',
       '--no-progress',
       '--ansi'
-    ])
+    ], { listeners: { stderr: expect.any(Function) }})
   })
 
   test('executes command to install composer with lowest dependencies', async () => {
@@ -48,7 +48,7 @@ describe('composer.install with mocked exec', () => {
       '--no-interaction',
       '--no-progress',
       '--ansi'
-    ])
+    ], { listeners: { stderr: expect.any(Function) }})
   })
 
   test('executes command to install composer with locked dependencies when provided invalid dependencyPreference', async () => {
@@ -62,7 +62,7 @@ describe('composer.install with mocked exec', () => {
       '--no-interaction',
       '--no-progress',
       '--ansi'
-    ])
+    ], { listeners: { stderr: expect.any(Function) }})
   })
 
   test('executes command to install composer with locked dependencies and working directory', async () => {
@@ -77,7 +77,7 @@ describe('composer.install with mocked exec', () => {
       '--no-progress',
       '--ansi',
       '--working-dir=subdirectory'
-    ])
+    ], { listeners: { stderr: expect.any(Function) }})
   })
 
   test('executes command to install composer with locked dependencies, working directory and options', async () => {
@@ -95,6 +95,6 @@ describe('composer.install with mocked exec', () => {
       '--opt1',
       '--opt2',
       '--opt3'
-    ])
+    ], { listeners: { stderr: expect.any(Function) }})
   })
 })

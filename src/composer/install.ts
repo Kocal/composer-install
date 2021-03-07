@@ -1,3 +1,4 @@
+import {error} from '@actions/core'
 import {exec} from '@actions/exec'
 
 export async function install(
@@ -30,5 +31,20 @@ export async function install(
 
   const filteredArgs = args.filter(Boolean)
 
-  await exec('composer', filteredArgs)
+  let stderr = ''
+  try {
+    await exec('composer', filteredArgs, {
+      listeners: {
+        stderr: (data: Buffer) => {
+          stderr += data.toString()
+        }
+      }
+    })
+  } catch (e) {
+    throw e
+  } finally {
+    if (stderr !== '') {
+      error(stderr)
+    }
+  }
 }
