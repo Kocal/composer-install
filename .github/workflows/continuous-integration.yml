@@ -25,6 +25,7 @@ jobs:
   test:
     name: "Test"
     runs-on: "${{ matrix.operating-system }}"
+    continue-on-error: "${{ matrix.continue-on-error }}"
     strategy:
       matrix:
         operating-system:
@@ -41,6 +42,12 @@ jobs:
         working-directory:
           - "subdirectory"
           - ""
+        continue-on-error: [false]
+        include:
+          - continue-on-error: true
+            operating-system: "ubuntu-latest"
+            dependency-versions: "locked"
+            composer-options: "--unknown-option"
     steps:
       - uses: "actions/checkout@v2"
       - uses: "shivammathur/setup-php@v2"
