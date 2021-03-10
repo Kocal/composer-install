@@ -10,9 +10,9 @@ export function getComposerWorkingDir(composerOptions = ''): string {
   ).trim()
 
   if (composerWorkingDir === '') {
-    info(`Composer working directory found at project root.`)
+    info(`Composer working directory set to project root.`)
   } else {
-    info(`Composer working directory found at "${composerWorkingDir}".`)
+    info(`Composer working directory set to "${composerWorkingDir}".`)
   }
 
   return composerWorkingDir
